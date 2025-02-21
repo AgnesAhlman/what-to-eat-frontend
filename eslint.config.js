@@ -1,4 +1,3 @@
-import importPlugin from 'eslint-plugin-import';
 import js from '@eslint/js';
 import globals from 'globals';
 import reactHooks from 'eslint-plugin-react-hooks';
@@ -8,11 +7,7 @@ import tseslint from 'typescript-eslint';
 export default tseslint.config(
   { ignores: ['dist'] },
   {
-    extends: [
-      js.configs.recommended,
-      ...tseslint.configs.recommended,
-      importPlugin.flatConfigs.recommended,
-    ],
+    extends: [js.configs.recommended, ...tseslint.configs.recommended],
     files: ['**/*.{ts,tsx}'],
     languageOptions: {
       ecmaVersion: 'latest',
@@ -28,13 +23,6 @@ export default tseslint.config(
         'warn',
         { allowConstantExport: true },
       ],
-
-      'import/no-unresolved': ['error', { commonjs: true, amd: true }],
-      'import/named': 'error',
-      'import/namespace': 'error',
-      'import/default': 'error',
-      'import/export': 'error',
-      'import/order': ['error'],
     },
   }
 );

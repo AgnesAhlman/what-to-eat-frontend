@@ -6,10 +6,10 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from './card';
-import { getAllRecipes } from '../../api/recipeApi';
-import { Recipe } from '../../types';
-import { Label } from './label';
+} from './ui/card';
+import { getAllRecipes } from '../api/recipeApi';
+import { Recipe } from '../types';
+import { Label } from './ui/label';
 
 export const RecipeList = () => {
   const { data: recipes } = useQuery<Recipe[], Error>({

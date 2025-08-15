@@ -2,7 +2,6 @@ import { useQuery } from '@tanstack/react-query';
 import {
   Card,
   CardContent,
-  CardDescription,
   CardFooter,
   CardHeader,
   CardTitle,
@@ -10,12 +9,14 @@ import {
 import { getAllRecipes } from '../api/recipeApi';
 import { Recipe } from '../types';
 import { Label } from './ui/label';
+import { useRouter } from '@tanstack/react-router';
 
 export const RecipeList = () => {
   const { data: recipes } = useQuery<Recipe[], Error>({
     queryKey: ['recipes'],
     queryFn: getAllRecipes,
   });
+  const router = useRouter();
 
   return (
     <>
@@ -23,10 +24,17 @@ export const RecipeList = () => {
         <Label className="mb-4">Recipes({recipes?.length})</Label>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {recipes?.map((recipe) => (
-            <Card key={recipe.id}>
+            <Card
+              key={recipe.id}
+              className="cursor-pointer"
+              onClick={() =>
+                router.navigate({
+                  to: `/recipe/${recipe.id}`,
+                })
+              }
+            >
               <CardHeader>
                 <CardTitle>{recipe.title}</CardTitle>
-                <CardDescription>{recipe.description}</CardDescription>
               </CardHeader>
               <CardContent></CardContent>
               <CardFooter></CardFooter>

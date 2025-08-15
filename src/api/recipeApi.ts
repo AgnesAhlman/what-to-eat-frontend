@@ -1,7 +1,7 @@
 import { Recipe } from '../types';
 
 export const getAllRecipes = async (): Promise<Recipe[]> => {
-  const response = await fetch('http://localhost:5034/api/Recipe');
+  const response = await fetch('http://localhost:5238/api/Recipe');
 
   if (!response.ok) {
     throw new Error('Failed to fetch recipes');

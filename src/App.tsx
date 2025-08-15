@@ -12,7 +12,7 @@ function App() {
         <Home />
       </QueryClientProvider>
     </>
-  );
+  )
 }
 
 export default App;

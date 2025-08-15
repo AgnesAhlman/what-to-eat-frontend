@@ -8,7 +8,7 @@ export const Home = () => {
           <img src="/logo.png" alt="logo" className="max-w-xs" />
         </div>
         <section className="flex flex-col gap-4 w-full">
-          <Input placeholder="Search for recipes" />
+          <Input placeholder="Search for recipes" className='bg-accent' />
           <RecipeList />
         </section>
       </div>

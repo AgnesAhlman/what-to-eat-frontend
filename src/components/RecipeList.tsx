@@ -20,8 +20,8 @@ export const RecipeList = () => {
   return (
     <>
       <div className="flex flex-col gap-2 mt-4">
-        <Label>Recipes({recipes?.length})</Label>
-        <div className="grid grid-cols-3 gap-4">
+        <Label className="mb-4">Recipes({recipes?.length})</Label>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {recipes?.map((recipe) => (
             <Card key={recipe.id}>
               <CardHeader>

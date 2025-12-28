@@ -11,7 +11,11 @@ import { Recipe } from '../types';
 import { Label } from './ui/label';
 import { useRouter } from '@tanstack/react-router';
 
-export const RecipeList = ({ inputText }) => {
+type Prop = {
+  inputText: string;
+};
+
+export const RecipeList = ({ inputText }: Prop) => {
   const { data: recipes } = useQuery<Recipe[], Error>({
     queryKey: ['recipes'],
     queryFn: getAllRecipes,

@@ -4,7 +4,7 @@ import { useState } from 'react';
 export const Home = () => {
   const [inputText, setInputText] = useState('');
 
-  const getInput = (e) => {
+  const getInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInputText(e.target.value);
   };
   return (

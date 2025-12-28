@@ -1,6 +1,11 @@
+import { recipe } from '@/mockData/recipe';
 import { Recipe } from '../types';
+const isMockData = false;
 
 export const getAllRecipes = async (): Promise<Recipe[]> => {
+  if (isMockData) {
+    return recipe;
+  }
   const response = await fetch('http://localhost:5238/api/Recipe');
 
   if (!response.ok) {
